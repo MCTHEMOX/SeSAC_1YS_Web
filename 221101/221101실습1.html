@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <style>
+            div {
+                border-radius: 50px;
+                width: 100px;
+                height: 100px;
+                background-color: blue;
+                position: relative;
+                animation-name: anim;
+                animation-iteration-count: 6;
+                animation-duration: 3s;
+                animation-timing-function:  linear;
+            }
+            @keyframes anim {
+                0% {left:0px;}
+                25% {left: 200px;top:0px}
+                50% {left: 200px; top:200px}
+                75% {left: 0px; top:200px;}
+                100% {left: 0px; top: 0px;}
+                
+            
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="div1"></div>
+    </body>
+</html>
