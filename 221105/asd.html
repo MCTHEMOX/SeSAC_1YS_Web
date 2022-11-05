@@ -1,0 +1,20 @@
+<html>
+
+	<img id="imgID" class="imgClass" src="/data/img.png"/>
+
+</html>
+
+<script>
+	$(document).ready(function(){
+    	//이미지 변경 함수 호출
+    	changeIMG();
+    });
+    
+    
+    function changeIMG(){
+    	   
+        //img 태그의 클래스 명으로 변경 할 때
+        $(".imgClass").attr("src", "/data/img2.png");
+    }
+
+</script>
