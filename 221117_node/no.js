@@ -1,19 +1,19 @@
 
-function login(id, pw, cb) {
+function login(id, pw, callback) {
     setTimeout(function(){
         console.log("사용자 입장");
-        cb(id);
+        callback(id);
     }, 3000);
 }
-function getVideo(id, cb) {
+function getVideo(id, callback) {
     setTimeout(function(){
         console.log( id + "의 비디오 리스트");
-        cb( ['아바타', '라라랜드']);
+        callback( ['아바타', '라라랜드']);
     }, 2000);
 }
-function getDetail(video, cb) {
+function getDetail(video, callback) {
     setTimeout(function() {
-        cb("비디오 제목 : " + video);
+        callback("비디오 제목 : " + video);
     }, 1000);
 }
 
