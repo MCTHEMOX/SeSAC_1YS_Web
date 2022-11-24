@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function sendGet(){
+            var form = document.getElementById("form_info");//form,name.value  age
+            //axios get을 이용한 통신
+            axios({
+                method : "get", // 어떤 메소드로 보내겠다
+                url : "/form", // 어떤 경로로 보내겠다
+                params: { // 보내는 값
+                    name: form.name.value}
+            }).then(function(res){
+                alert(res.data);
+            });
+        }
+
+        //겟방식은 파람스로 보냄
+        function sendPost(){
+            var form = document.getElementById("form_info");
+            axios({
+                method : "post", 
+                url : "/form",
+                data: {name: form.name.value}
+            }).then(function(res){
+                alert(res.data);
+            });
+        }
+        //포스트는 data로 보냄
+    </script>
+</head>
+<body>
+    <button type="button" onclick="sendGet()">get</button>
+    <button type="button" onclick="sendPost()">post</button>
+    <form id="form_info">
+        <input type="text" name="name">
+    </form>
+</body>
+</html>

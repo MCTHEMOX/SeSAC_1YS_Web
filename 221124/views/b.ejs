@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function sendpost2(){
+            var form = document.getElementById("form_info");
+            axios({
+                method : "post", // 어떤 메소드로 보내겠다
+                url : "/form2", // 어떤 경로로 보내겠다
+                data: { // 보내는 값  //get은 params, post는 data
+                    id:form.id.value,
+                    pw:form.pw.value
+                  
+                    }
+                }).then(function(res){
+                document.querySelector("#abc").innerHTML = res.data;
+            });
+        }
+    </script>
+</head>
+<body>
+    <form id="form_info">
+        id<input type="text" name="id">
+        pw<input type="password" name="pw">
+        <div id="abc"></div>
+        <button type="button" onclick="sendpost2()">눌러</button>
+    </form>     
+        
+        
+    
+
+</body>
+</html>

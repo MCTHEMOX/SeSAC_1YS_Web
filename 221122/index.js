@@ -64,4 +64,3 @@ app.post("/postForm2",(req,res)=>{
 app.listen( port,()=>{
     console.log("sever open : ", port);
 })
-
