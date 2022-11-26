@@ -47,6 +47,10 @@ app.get("/a", function(req,res) {
 app.get("/b", function(req,res) {
     res.render("b");
 });
+
+
+
+
 app.listen( port,()=>{
     console.log("sever open : ", port);
 });
