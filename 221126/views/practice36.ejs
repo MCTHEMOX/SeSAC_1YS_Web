@@ -48,7 +48,7 @@ axios({
                     }
                 }).then((a) => { return a.data; })
                 .then((d) => {
-                    document.querySelector("img").src = d.path;
+                    document.getElementById('a123').src = d.path;
                 });
             }
         </script>
@@ -67,6 +67,6 @@ axios({
             <button type="button" onclick="register();">회원가입</button>
         </form>
         <br>
-        <img>
+        <img id="a123">
     </body>
 </html>
