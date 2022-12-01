@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true})); 
 app.use(express.json());
 
-const upload = multer({
+const upload = multer({           //multer은 파일 업로드를 위해 사용되는 node.js의 미들웨어
     storage: multer.diskStorage({
         destination(req,file,done){
             done( null, 'uploads/');  

@@ -1,8 +1,8 @@
 use test;
 
 create table member (
-	ID varchar(10) not null primary key,
-    name varchar(5) not null,
+	ID int not null primary key,
+    name varchar(10) not null,
     age int,
     gender varchar(2) not null,
     email varchar(50),
@@ -10,7 +10,7 @@ create table member (
 );
 
 desc member;
-desc uidser;
+desc user;
 
 alter table member drop column birthday;
 
@@ -107,3 +107,11 @@ select host, user, plugin, authentication_string from mysql.user;
 # mysql 계정 비밀번호를 바꾸고 싶을 때
 ALTER USER 'user'@'%' IDENTIFIED WITH mysql_native_password BY '1q2w3e4r';
 
+use test;
+create table visitor (
+	ID int not null primary key auto_increment,
+    name varchar(10) not null,
+    comment mediumtext    
+);
+select * from visitor;
+insert into visitor(name, comment) values("홍길동","내가왔다");
