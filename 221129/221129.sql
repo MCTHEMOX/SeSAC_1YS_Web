@@ -115,3 +115,9 @@ create table visitor (
 );
 select * from visitor;
 insert into visitor(name, comment) values("홍길동","내가왔다");
+
+create table a (
+	id varchar(10) not null,
+    pw varchar(10) not null,
+    name varchar(5)    
+);

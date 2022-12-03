@@ -10,13 +10,12 @@ app.use(express.json());
 
 
 const router = require("./routes");
-app.use('/visitor',router);
+app.use('/visitor',router); //미들웨어
 
 
 app.get('*',(req,res)=>{ //별은 모든라우터,  마지막에 정의해야함.
     res.send('error 주소없음');
 })
-
 app.listen( port,()=>{
     console.log("sever open : ", port);
 });

@@ -1,3 +1,4 @@
+const e = require("express");
 const mysql = require("mysql");
 
 const cnn = mysql.createConnection({
@@ -5,13 +6,14 @@ const cnn = mysql.createConnection({
     user: 'user',
     password: '1q2w3e4r',
     database: 'test'
-});
+}); //mysql연결
 
 exports.get_visitor = (cb) => {
     var sql = 'SELECT * FROM visitor';
-    cnn.query(sql, (err, rows) => {
+
+    cnn.query(sql, (err, rows) => { //에러나면 
         if(err) throw err;
-        console.log("visitors : ", rows);
+        console.log("visitors : ", rows); //에러안나면
 
         cb(rows);
     })
@@ -25,5 +27,33 @@ exports.register_visitor = (info, cb) => {
 
         console.log("insert result:",result);
         cb(result.insertId)
+    })
+}
+
+exports.delete_visitor = (id, cb) => {
+    var sql = `delete from visitor where ID = ${id}`;
+    cnn.query(sql, (err, result)=>{
+        if (err) throw err;
+
+        console.log("delete result:", result);
+        cb();
+    })
+}
+
+exports.get_visitor_by_id_model = (id,cb) =>{
+    var sql = `select * from visitor where id = ${id}`;
+    cnn.query(sql, (err, rows)=>{
+        if (err) throw err;
+        console.log("select by id", rows);
+        cb(rows[0]);
+    })
+}
+
+exports.update_visitor = (info, cb) => {
+    var sql = `update visitor set name='${info.name}', comment='${info.comment}' where id=${info.id}`
+    cnn.query(sql, (err, result) =>{
+        if (err) throw err;
+        console.log("update result: ", result);
+        cb();
     })
 }
