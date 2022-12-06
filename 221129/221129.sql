@@ -104,20 +104,38 @@ GRANT ALL PRIVILEGES ON *.* TO 'user'@'%' WITH GRANT OPTION;
 # 현재 사용중인 MySQL의 캐시를 지우고 새로운 설정을 적용하기 위해 사용
 FLUSH PRIVILEGES;
 select host, user, plugin, authentication_string from mysql.user;
-# mysql 계정 비밀번호를 바꾸고 싶을 때
+# mysql 계정 비밀번호를 바꾸고 싶을 때visitor
 ALTER USER 'user'@'%' IDENTIFIED WITH mysql_native_password BY '1q2w3e4r';
 
-use test;
-create table visitor (
-	ID int not null primary key auto_increment,
-    name varchar(10) not null,
-    comment mediumtext    
+use test2;
+create table user(useruser
+	ID varchar(10),
+    name varchar(10) ,
+    pw varchar(10)    
 );
 select * from visitor;
-insert into visitor(name, comment) values("홍길동","내가왔다");
+insert into visitor(name, comment) values("목목목","내용2");
 
 create table a (
 	id varchar(10) not null,
     pw varchar(10) not null,
     name varchar(5)    
 );
+select * from user;
+insert into a(id,pw,name) values("1","1","1");
+delete from visitor where id="17";
+
+create table hard (
+	id varchar(10) not null,
+    pw varchar(10) not null,
+    name varchar(5)    
+);
+select * from visitor;
+drop table visitor;
+create table visitor(
+	id int not null primary key auto_increment,
+    name varchar(10) not null,
+    comment mediumtext
+);
+
+select
