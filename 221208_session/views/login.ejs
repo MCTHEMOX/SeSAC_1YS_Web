@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function logout(){
+        var form = document.getElementById("out");
+        axios({
+            method : "post", 
+            url : "/logout", // 어떤 경로로 보내겠다
+        }).then(function (response) {
+	    console.log(response);
+        window.location.href = "/"
+    });
+}
+
+</script>
+    로그인 성공
+<div class="out">
+    <button type="button" onclick="logout()">로그아웃</button>
+</div>
+
+</body>
+</html>
