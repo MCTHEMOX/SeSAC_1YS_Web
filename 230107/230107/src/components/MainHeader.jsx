@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-export default function MainHeader( {text, href, userID}) {
+export default function MainHeader( props ) {
     // export default function MainHeader( props ) {
     // const { text,href,userID } = props;
     // 둘 다 같음
@@ -21,8 +21,8 @@ export default function MainHeader( {text, href, userID}) {
     
   return (
     <div>
-    <h1>{userID}님 반갑하이</h1>
-    <a href={href}>{text}</a>
+    <h1>{props.userID}님 반갑하이</h1>
+    <a href={props.href}>{props.text}</a>
     </div>
   )
 }

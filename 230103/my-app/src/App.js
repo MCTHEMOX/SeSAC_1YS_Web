@@ -1,55 +1,52 @@
 import logo from './logo.svg';
 import './App.css';
 
-
 // function App() {
 
-    // function printConlose() {
-    //   console.log('콘솔출력')
-    // }
+// function printConlose() {
+//   console.log('콘솔출력')
+// }
 
-
-  // const fontStyle = {backgroundColor: "orange"};
+// const fontStyle = {backgroundColor: "orange"};
 //펑션과 리턴사이 일반 자바스크립트 영역
 
-  // const str = "hello react world";
-  // function amazingJSX() {
-  //   alert('amazingJSX');
-   
-  // }
-  // const test = 'test';
+// const str = "hello react world";
+// function amazingJSX() {
+//   alert('amazingJSX');
 
-  // return (
-    // <div className="App">
-    //   <div className={test}></div>
-    // </div>
+// }
+// const test = 'test';
 
-    // <div className="App">
-    //   <div style={fontStyle}>asd</div>
-    // </div>
+// return (
+// <div className="App">
+//   <div className={test}></div>
+// </div>
 
-    // <div className="App">
-    //   <span onClick={ () => { alert('클릭') }}>클릭</span>
-    // </div>
+// <div className="App">
+//   <div style={fontStyle}>asd</div>
+// </div>
 
-    // <div className="App">
-    // <span onClick={ () => {
-    //   let num = 10;
-    //   num += 5;
-    //   console.log(num);
-    // }}>클릭
-    //   </span>
-    // </div>
+// <div className="App">
+//   <span onClick={ () => { alert('클릭') }}>클릭</span>
+// </div>
 
-    // <div className="App">
-    //   <span onClick={
-    //     let num= 10;
-    //     num += 5;
-    //     console.log(num);
-    //   }>클릭</span>
-    // </div>
+// <div className="App">
+// <span onClick={ () => {
+//   let num = 10;
+//   num += 5;
+//   console.log(num);
+// }}>클릭
+//   </span>
+// </div>
 
-    
+// <div className="App">
+//   <span onClick={
+//     let num= 10;
+//     num += 5;
+//     console.log(num);
+//   }>클릭</span>
+// </div>
+
 //   );
 // }
 
@@ -70,11 +67,10 @@ import ImgComponent from './components/ImgComponents';
 import BtnToNaver from './components/BtnToNaver';
 
 function App() {
-
   return (
     <div className="App">
       <ImgComponent />
-      <BtnToNaver/>
+      <BtnToNaver />
     </div>
   );
 }

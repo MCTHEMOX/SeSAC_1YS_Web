@@ -5,6 +5,7 @@ import ArrState from './components/ArrState';
 import ClassState from './components/ClassState';
 import ObjState from './components/ObjState';
 import StateAndVariable from './components/StateAndVariable';
+import Test from './components/Test';
 
 function App() {
   const [num, setNum] = useState(1);
@@ -23,12 +24,16 @@ function App() {
         <span>{num > 10 ? '따봉' : '안따봉'}</span>
       </button>
       <span>{num}</span>
-
+      <hr />
       <ClassState />
-
-      {/* <StateAndVariable /> */}
+      <hr />
+      <StateAndVariable />
+      <hr />
       <ArrState />
+      <hr />
       <ObjState />
+      <hr />
+      <Test />
     </div>
   );
 }

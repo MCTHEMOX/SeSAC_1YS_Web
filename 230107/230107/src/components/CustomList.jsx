@@ -6,6 +6,7 @@ export default function CustomList(props) {
         {props.arr?.map((el) => {
             return <div key={el}>{el}</div>
         })}
+        <span>{props.arr}</span>
     </div>
   )
 }
