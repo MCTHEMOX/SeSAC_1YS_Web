@@ -1,0 +1,12 @@
+div.component-root {
+    background-color: aqua;
+}
+
+div.component-root h1 {
+    color: blue;
+}
+
+div.component-root span {
+    background-color: black;
+    color: aliceblue;
+}
