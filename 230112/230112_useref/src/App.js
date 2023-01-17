@@ -31,14 +31,19 @@ function App() {
       ReactFragment
       <ReactFragment />
       <hr />
+      ConditionallRender
       <ConditionallRender />
       <hr />
+      ExConditional
       <ExConditional />
       <hr />
+      TestUseEffect
       <TestUseEffect />
       <hr />
+      ShowTimer
       <ShowTimer />
       <hr />
+      ExShow
       <ExShow />
     </div>
   );
