@@ -6,6 +6,7 @@ import FancyBorder from './components/FancyBorder';
 import Header from './components/Header';
 import Image from './components/Image';
 import InlineCss from './components/InlineCss';
+import Music from './components/Music';
 import NotFound from './components/NotFound';
 import Profile from './components/Profile';
 import TestCss from './components/TestCss';
@@ -35,6 +36,7 @@ function App() {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Music/>
     </div>
   );
 }
