@@ -22,10 +22,13 @@ function App() {
       <ChangeFocus /> <hr />
       RefDOM
       <RefDOM /> <hr />
+      ColorInput
       <ColorInput />
       <hr />
+      Quiz
       <Quiz />
       <hr />
+      Comparing
       <Comparing />
       <hr />
       ReactFragment
