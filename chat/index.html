@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./chat.css">
+    <title>Document</title>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="contentWrap">
+        <div id="contentCover">
+            <div id="chatWrap">
+                <div id="chatHeader">채팅방</div>
+                <div id="chatLog" class="container">
+                    <div class="anotherMsg">
+                        <!-- <span class="anotherName">규리강사님</span> -->
+                        <div class="msg">??</div>
+                        <div class="dm">상대DM</div>
+                    </div>
+                    <div class="myMsg">
+                        <div class="msg">누구세요?</div>
+                        <div class="dm2">나의DM</div>
+                    </div>
+
+                </div>
+                <!-- <div id="chatForm">
+                    <input type="text" autocomplete="off" size="30" id="message" placeholder="   메시지를 입력하세요">
+                    <input type="submit" value="보내기" style="cursor: pointer;">
+                </div> -->
+                <div id="chatForm">
+                    <select id="members">
+                        <option value="전체">전체</option>
+                      </select>
+                    <input type="text" autocomplete="off" size="30" id="message" placeholder="   메시지를 입력하세요">
+                    <input type="button" onclick="btnSend()" value="보내기" style="cursor: pointer;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const socket = io.connect()
+        
+        const username = prompt('닉네임을 입력해주세요')
+
+        socket.on('connect', ()=>{
+            console.log('server connected');
+            socket.emit('username', username);  //서버로 유저네임 보낸다
+        })
+
+        let my_id = ''
+
+        socket.on('info',(socketID)=> {
+            my_id = socketID;
+        })
+        
+
+        socket.on('notice',(msg)=>{
+            const container = document.querySelector('.container');
+            const div = document.createElement('div');
+            div.classList.add('notice')
+            div.textContent = msg;
+            
+            container.appendChild(div);
+        })
+
+        socket.on('newMSG', (json) => {
+
+            // msg : 메세지, from : 보낸 사람의 소켓 아이디, username : 보낸 사람의 닉네임
+            
+
+            const container = document.querySelector('.container');
+            const outer_div = document.createElement('div');
+            const div = document.createElement('div');
+
+            div.textContent = json.username + " : " + json.msg;
+
+            // div.textContent = json.msg;
+            div.classList.add('msg')
+            
+
+            if(my_id == json.from) outer_div.classList.add('myMsg')
+            else outer_div.classList.add('anotherMsg')
+            outer_div.appendChild(div);
+            container.appendChild(outer_div)
+        })
+
+        socket.on('list', (list)=> {
+            console.log(list)
+            const member_list = document.getElementById('members');
+            while(member_list.firstChild) member_list.removeChild(member_list.lastChild);
+            const option = document.createElement('option')
+            option.text = '전체';
+            option.value = '전체'
+            member_list.appendChild(option)
+            console.log(Object.entries(list))
+            for(let [key, value] of Object.entries(list)) {
+                const option = document.createElement('option')
+                option.text = value;
+                option.value = value;
+                member_list.appendChild(option)
+            }
+        })
+
+
+
+
+        const btnSend = () => {
+            const input = document.getElementById('message');
+            const to = document.getElementById('members').value;
+            // {to : to}
+            socket.emit('send', {msg : input.value, to})
+        }
+    </script>
+</body>
+</html>
